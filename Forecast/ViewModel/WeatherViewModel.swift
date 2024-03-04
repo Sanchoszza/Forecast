@@ -49,7 +49,6 @@ final class WeatherViewModel: NSObject, ObservableObject{
         if !searchCityName.isEmpty {
             CLGeocoder().geocodeAddressString(searchCityName) { (placemarks, error) in
                 if let location = placemarks?.first?.location {
-                    // Проверяем, не содержится ли уже город с таким именем в списке
                     if !self.selectedCities.contains(where: { $0.name == self.searchCityName }) {
                         self.perfomWeatherRequest(with: location)
                         
@@ -57,7 +56,6 @@ final class WeatherViewModel: NSObject, ObservableObject{
                         self.selectedCities.append(newCity)
                         self.saveSelectedCity(newCity)
                     } else {
-                        // Если город уже есть в списке, просто очищаем поле ввода
                         self.searchCityName = ""
                     }
                 }
@@ -107,10 +105,8 @@ final class WeatherViewModel: NSObject, ObservableObject{
     func removeCity(at index: Int) {
         print("City was removed")
         selectedCities.remove(at: index)
-//        saveSelectedCities(selectedCities)
         objectWillChange.send()
     }
-
 
     
     func perfomWeatherRequest(with location: CLLocation){

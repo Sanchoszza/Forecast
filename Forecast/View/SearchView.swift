@@ -6,16 +6,22 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct SearchView: View {
     @Binding var searchText: String
     @ObservedObject var weatherVM: WeatherViewModel
     @State private var isShowingCityWeather = false
+    @State private var locationManager = CLLocationManager()
     
     var body: some View {
         HStack {
             Button {
-                weatherVM.getWeather()
+                if let location = locationManager.location {
+                    let city = City(name: "Current Location", coordinates: City.Coordinates(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude))
+                    weatherVM.getWeather()
+                    isShowingCityWeather = true
+                }
             } label: {
                 Image(systemName: "location.circle.fill")
                     .renderingMode(.original)

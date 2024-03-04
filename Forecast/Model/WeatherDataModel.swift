@@ -60,7 +60,7 @@ struct WeatherDataModel: Codable{
 }
 
 
-struct City: Codable{
+struct City: Codable, Equatable{
     let name: String
     let coordinates: Coordinates
     
@@ -68,6 +68,10 @@ struct City: Codable{
         let latitude: Double
         let longitude: Double
     }
+    
+    static func == (lhs: City, rhs: City) -> Bool {
+            return lhs.name == rhs.name && lhs.coordinates.latitude == rhs.coordinates.latitude && lhs.coordinates.longitude == rhs.coordinates.longitude
+        }
 }
 
 class CityStore: ObservableObject {
@@ -81,11 +85,14 @@ class CityStore: ObservableObject {
         cities.append(city)
     }
     
-    func removeCity(at index: Int) {
-        cities.remove(at: index)
+    func removeCity(_ city: City) {
+        if let index = cities.firstIndex(of: city) {
+            cities.remove(at: index)
+        }
     }
     
     func moveCity(from source: IndexSet, to destination: Int) {
         cities.move(fromOffsets: source, toOffset: destination)
     }
 }
+
