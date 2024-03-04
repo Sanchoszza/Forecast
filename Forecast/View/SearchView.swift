@@ -1,6 +1,6 @@
 //
 //  SearchView.swift
-//  weather vf
+//  Forecast
 //
 //  Created by Alexandra on 02.03.2024.
 //

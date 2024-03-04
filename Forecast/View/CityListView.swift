@@ -39,7 +39,6 @@ struct CityListView: View {
             .navigationBarTitle("Мои города")
             .navigationBarItems(trailing: EditButton())
             .onReceive(weatherVM.objectWillChange) { _ in
-                // Обновление CityListView при изменении в WeatherViewModel
             }
         }
         .onAppear {
@@ -92,10 +91,10 @@ struct CityWeatherDetailView: View {
             .onAppear {
                 weatherVM.searchCityName = city.name
                 weatherVM.fetchWeatherByCityName()
+//                weatherVM.fetchWeather(for: city)
                 isAdded = weatherVM.selectedCities.contains { $0.name == city.name }
             }
             .onDisappear {
-                // Удаление города при выходе из экрана
                 if !isAdded {
                     if let index = weatherVM.selectedCities.firstIndex(where: { $0.name == city.name }) {
                         weatherVM.removeCity(at: index)

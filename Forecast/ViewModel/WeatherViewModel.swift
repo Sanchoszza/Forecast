@@ -1,6 +1,6 @@
 //
 //  WeatherViewModel.swift
-//  weather vf
+//  Forecast
 //
 //  Created by Alexandra on 02.03.2024.
 //
@@ -99,16 +99,15 @@ final class WeatherViewModel: NSObject, ObservableObject{
         if !selectedCities.contains(where: { $0.name == city.name }) {
             selectedCities.append(city)
             saveSelectedCities(selectedCities)
+            saveSelectedCity(city)
         }
     }
-
-
 
     
     func removeCity(at index: Int) {
         print("City was removed")
         selectedCities.remove(at: index)
-        saveSelectedCities(selectedCities)
+//        saveSelectedCities(selectedCities)
         objectWillChange.send()
     }
 
@@ -140,6 +139,7 @@ final class WeatherViewModel: NSObject, ObservableObject{
             }
         }
     }
+
     
     func getCityName(of location: CLLocation){
         CLGeocoder().reverseGeocodeLocation(location) { (placemarks, error) in
