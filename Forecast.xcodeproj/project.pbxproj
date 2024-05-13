@@ -27,6 +27,7 @@
 		6E5BA5F6266B7CD700B357D6 /* GlobalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5BA5F5266B7CD700B357D6 /* GlobalExtension.swift */; };
 		6E5BA5F9266B7D1600B357D6 /* WDM Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5BA5F8266B7D1600B357D6 /* WDM Extension.swift */; };
 		6EE9E761266A035D00CD7E3C /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EE9E760266A035D00CD7E3C /* DetailCell.swift */; };
+		A8C3005B2BF1ED000033C705 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A8C300592BF1ED000033C705 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,8 @@
 		6E5BA5F5266B7CD700B357D6 /* GlobalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalExtension.swift; sourceTree = "<group>"; };
 		6E5BA5F8266B7D1600B357D6 /* WDM Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WDM Extension.swift"; sourceTree = "<group>"; };
 		6EE9E760266A035D00CD7E3C /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		A8C3005A2BF1ED000033C705 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A8C3005C2BF1ED680033C705 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,7 @@
 		6E1D51A62665006E00FB0B2E = {
 			isa = PBXGroup;
 			children = (
+				A8C300592BF1ED000033C705 /* Localizable.strings */,
 				6E1D51B12665006E00FB0B2E /* Forecast */,
 				6E1D51B02665006E00FB0B2E /* Products */,
 			);
@@ -198,6 +202,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 6E1D51A62665006E00FB0B2E;
 			productRefGroup = 6E1D51B02665006E00FB0B2E /* Products */;
@@ -215,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E1D51BA2665006F00FB0B2E /* Preview Assets.xcassets in Resources */,
+				A8C3005B2BF1ED000033C705 /* Localizable.strings in Resources */,
 				6E5303A9266B861C00A41460 /* ForecastLaunchScreen.storyboard in Resources */,
 				6E1D51B72665006F00FB0B2E /* Assets.xcassets in Resources */,
 			);
@@ -249,11 +255,24 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		A8C300592BF1ED000033C705 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A8C3005A2BF1ED000033C705 /* en */,
+				A8C3005C2BF1ED680033C705 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		65D9D4812B964A1B00EF4B41 /* Adhoc */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -313,7 +332,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Forecast/Preview Content\"";
-				DEVELOPMENT_TEAM = HPJ259DA54;
+				DEVELOPMENT_TEAM = 23Y2MKBJ36;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Forecast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
@@ -321,7 +340,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sssttt.Forecast;
+				PRODUCT_BUNDLE_IDENTIFIER = com.az.Forecast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -332,6 +351,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -393,6 +413,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -451,7 +472,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Forecast/Preview Content\"";
-				DEVELOPMENT_TEAM = HPJ259DA54;
+				DEVELOPMENT_TEAM = 23Y2MKBJ36;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Forecast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
@@ -459,7 +480,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sssttt.Forecast;
+				PRODUCT_BUNDLE_IDENTIFIER = com.az.Forecast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -473,7 +494,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Forecast/Preview Content\"";
-				DEVELOPMENT_TEAM = HPJ259DA54;
+				DEVELOPMENT_TEAM = 23Y2MKBJ36;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Forecast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
@@ -481,7 +502,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sssttt.Forecast;
+				PRODUCT_BUNDLE_IDENTIFIER = com.az.Forecast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
