@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  Forecast
+
+  Created by Alexandra on 13.05.2024.
+  
+*/
+
+"N" = "N";
+"E" = "E";
+"S" = "S";
+"W" = "W";
+"NE" = "NE";
+"SE" = "SE";
+"SW" = "SW";
+"NW" = "NW";
+"Km/h" = "Km/h";
+
+"Loading" = "Загрузка";
+"Ошибка" = "Error";
+"Пожалуйста, включите службы геолокации в настройках вашего устройства" = "Please enable location services in your device settings";
+"OK" = "OK";

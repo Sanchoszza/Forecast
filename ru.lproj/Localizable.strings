@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  Forecast
+
+  Created by Alexandra on 13.05.2024.
+  
+*/
+
+"N" = "С";
+"E" = "В";
+"S" = "Ю";
+"W" = "З";
+"NE" = "СВ";
+"SE" = "ЮВ";
+"SW" = "ЮЗ";
+"NW" = "СЗ";
+"Km/h" = "км/ч";
+
+
+"Daily Forecast" = "Прогноз на день";
+"Today: " = "Сегодня: ";
+"Max" = "Макс";
+"Min" = "Мин";
+"Rain" = "Дождь";
+
+"Search City" = "Поиск по городу";
+
+"Feels like" = "Ощущается как";
+"Humidity" = "Влажность";
+
+"Hourly Forecast" = "Почасовой прогноз";
+"Rain" = "Дождь";
+
+"Sunrise" = "Восход солнца";
+"Sunset" = "Закат солнца";
+"Pressure" = "Давление";
+"Visibility" = "Видимость";
+"Wind" = "Ветер";
+"UV Index" = "УФ-индекс";
+
+"My Cities" = "Мои города";
+
+"Edit" = "Редактировать";
