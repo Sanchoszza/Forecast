@@ -15,7 +15,7 @@ struct HourlyView: View {
         if let hourly = weatherVM.hourly{
             Divider()
             VStack(alignment: .leading){
-                Text("Hourly Forecast").bold()
+                Text(NSLocalizedString("Hourly Forecast", comment: "Hourly Forecast")).bold()
                 ScrollView(.horizontal, showsIndicators: false){
                     HStack{
                         ForEach(hourly, id: \.dt){ hour in
@@ -31,10 +31,10 @@ struct HourlyView: View {
                                     .font(.system(size: 24))
                                     .padding()
                                     HStack{
-                                        Text("Rain: \((hour.pop * 100).roundedString(to: 0))%")
+                                        Text(NSLocalizedString("Rain", comment: "Rain") + ": \((hour.pop * 100).roundedString(to: 0))%")
                                         Divider()
                                         Divider()
-                                        Text("Cloud: \(hour.clouds)%")
+                                        Text(NSLocalizedString("Cloud", comment: "Cloud") + ": \(hour.clouds)%")
                                     }
                                 }.padding()
                             }
@@ -44,6 +44,7 @@ struct HourlyView: View {
                     }
                 }
             }.padding(.horizontal, 8)
+
         }
     }
 }

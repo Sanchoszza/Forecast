@@ -17,18 +17,20 @@ struct DetailView: View {
             VStack(alignment: .leading){
                 HStack{
                     VStack(alignment: .leading){
-                        DetailCell(title: "Sunrise", detail: "\(current.sunrise.hourMiniteAmPm(weatherVM.timeZoneOffset))")
-                        DetailCell(title: "Pressure", detail: "\(current.pressure) hPa")
-                        DetailCell(title: "Visability", detail: "\(current.visibility/1000) Km")
+                        DetailCell(title: NSLocalizedString("Sunrise", comment: "Sunrise"), detail: "\(current.sunrise.hourMiniteAmPm(weatherVM.timeZoneOffset))")
+                        DetailCell(title: NSLocalizedString("Pressure", comment: "Pressure"), detail: "\(current.pressure) hPa")
+                        DetailCell(title: NSLocalizedString("Visibility", comment: "Visibility"), detail: "\(current.visibility/1000) Km")
                     }
                     
                     Divider()
+                    
                     VStack(alignment: .leading){
-                        DetailCell(title: "Sunset", detail: "\(current.sunset.hourMiniteAmPm(weatherVM.timeZoneOffset))")
-                        DetailCell(title: "Wind", detail: "\(current.windSpeedWithDirection)")
-                        DetailCell(title: "UV Index", detail: current.uvi.roundedString(to: 0))
+                        DetailCell(title: NSLocalizedString("Sunset", comment: "Sunset"), detail: "\(current.sunset.hourMiniteAmPm(weatherVM.timeZoneOffset))")
+                        DetailCell(title: NSLocalizedString("Wind", comment: "Wind"), detail: "\(current.windSpeedWithDirection)")
+                        DetailCell(title: NSLocalizedString("UV Index", comment: "UV Index"), detail: current.uvi.roundedString(to: 0))
                     }
                 }
+
             }.padding(.horizontal)
         }
     }

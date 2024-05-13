@@ -31,16 +31,16 @@ extension WeatherDataModel.Weather{
 
 extension WeatherDataModel.Current {
     var windSpeedWithDirection: String {
-        let windSpeed = "\((wind_speed * 3.6).roundedString(to: 1)) Km/h"
+        let windSpeed = "\((wind_speed * 3.6).roundedString(to: 1)) " + NSLocalizedString("Km/h", comment: "")
         switch wind_deg {
-        case 0, 360: return "N \(windSpeed)"
-        case 90: return "E \(windSpeed)"
-        case 180: return "S \(windSpeed)"
-        case 270: return "W \(windSpeed)"
-        case 1..<90: return "NE \(windSpeed)"
-        case 91..<180: return "SE \(windSpeed)"
-        case 181..<270: return "SW \(windSpeed)"
-        case 271..<360: return "NW \(windSpeed)"
+        case 0, 360: return NSLocalizedString("N", comment: "") + " \(windSpeed)"
+        case 90: return NSLocalizedString("E", comment: "") + " \(windSpeed)"
+        case 180: return NSLocalizedString("S", comment: "") + " \(windSpeed)"
+        case 270: return NSLocalizedString("W", comment: "") + " \(windSpeed)"
+        case 1..<90: return NSLocalizedString("NE", comment: "") + " \(windSpeed)"
+        case 91..<180: return NSLocalizedString("SE", comment: "") + " \(windSpeed)"
+        case 181..<270: return NSLocalizedString("SW", comment: "") + " \(windSpeed)"
+        case 271..<360: return NSLocalizedString("NW", comment: "") + " \(windSpeed)"
         default: return windSpeed
         }
     }

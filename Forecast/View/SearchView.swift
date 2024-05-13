@@ -28,9 +28,9 @@ struct SearchView: View {
                     .font(.system(size: 24))
             }
 
-            TextField("Search City", text: $searchText, onCommit: {
+            TextField(NSLocalizedString("Search City", comment: "Search City"), text: $searchText, onCommit: {
                 weatherVM.fetchWeatherByCityName()
-                isShowingCityWeather = true 
+                isShowingCityWeather = true
             })
             .padding(5)
             .background(Color(.quaternarySystemFill))

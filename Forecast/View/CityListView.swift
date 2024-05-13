@@ -36,7 +36,7 @@ struct CityListView: View {
                     .listStyle(PlainListStyle())
                 }
             }
-            .navigationBarTitle("Мои города")
+            .navigationBarTitle(NSLocalizedString("My Cities", comment: "My Cities"))
             .navigationBarItems(trailing: EditButton())
             .onReceive(weatherVM.objectWillChange) { _ in
             }
@@ -57,6 +57,7 @@ struct CityListView: View {
         }
     }
 }
+
 
 struct CityWeatherDetailView: View {
     let city: City
@@ -112,23 +113,7 @@ struct CityWeatherDetailView: View {
             }
         }
     }
-    
-//    private var addButton: some View {
-//        if city.name != "Current Location" {
-//            return AnyView(Button(action: {
-//                addCity()
-//            }) {
-//                Image(systemName: isAdded ? "checkmark.circle.fill" : "plus.circle.fill")
-//                    .font(.title)
-//                    .foregroundColor(.white)
-//                    .padding()
-//            })
-//        } else {
-//            return AnyView(EmptyView())
-//        }
-//    }
 
-   
     private var addButton: some View {
         Button(action: {
             addCity()

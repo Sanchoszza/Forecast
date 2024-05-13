@@ -21,7 +21,7 @@ struct CurrentView: View {
                     Text(current.weather[0].description.capitalized)
                     Divider()
                     Divider()
-                    Text("Feels like: \(current.feels_like.roundedString(to: 0))°")
+                    Text(NSLocalizedString("Feels like", comment: "Feels like") + ": \(current.feels_like.roundedString(to: 0))°")
                 }.fixedSize()
                 HStack{
                     Text("\(current.temp.roundedString(to: 0))°")
@@ -30,11 +30,12 @@ struct CurrentView: View {
                     Image(systemName: current.weather[0].iconeImage).renderingMode(.original)
                 }.fixedSize().font(.system(size: 75)).padding()
                 HStack{
-                    Text("Cloud: \((current.clouds))%")
+                    Text(NSLocalizedString("Cloud", comment: "Cloud") + ": \((current.clouds))%")
                     Divider()
-                    Text("Humidity: \(current.humidity)%")
+                    Text(NSLocalizedString("Humidity", comment: "Humidity") + ": \(current.humidity)%")
                 }.fixedSize()
             }
+
         }
     }
 }
