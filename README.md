@@ -1,6 +1,5 @@
-<img src=”https://userimages.githubusercontent.com/75753187/123358567-aac7b900-d539-11eb-8275-0b380264bb4c.png" alt=”my banner”>
-<p align=”center”>
-
-<img width=”200" height=”200" src=”https://user-images.githubusercontent.com/75753187/123358567-aac7b900-d539-11eb-8275-0b380264bb4c.png" alt=”my banner”>
-
-</p>
+#*Forecast*
+##**Прогноз погоды на iOS**
+Данный проект представляет собой iOS приложение для просмотра погоды. 
+Помимо мобильного приложения был реализован виджет для быстрого просмотра погоды.
+<img src="https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg" width="200">
