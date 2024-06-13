@@ -37,11 +37,34 @@ final class WeatherViewModel: NSObject, ObservableObject{
         requestLocation()
         
         selectedCities = loadSelectedCities()
+
+        NotificationManager.instance.requestAuth()
+
+        Timer.scheduledTimer(timeInterval: 3600, target: self, selector: #selector(checkWeather), userInfo: nil, repeats: true)
+        UNUserNotificationCenter.current().setBadgeCount(0)
     }
     
     func getWeather(){
         if let location = locationManager.location{
             perfomWeatherRequest(with: location)
+        }
+        print("GET WEATHER \(String(describing: current?.weather.first?.main))")
+        
+    }
+
+    @objc func checkWeather() {
+        getWeather()
+        
+        if let hourly = self.hourly, let currentWeather = hourly.first {
+            if currentWeather.weather.first?.main == "Rain" {
+                NotificationManager.instance.scheduleNotification(title: NSLocalizedString("WeatherAlert", comment: ""), subtitle: NSLocalizedString("rainSubtitle", comment: ""))
+            } else if currentWeather.weather.first?.main == "Thunderstorm" {
+                NotificationManager.instance.scheduleNotification(title: NSLocalizedString("WeatherAlert", comment: ""), subtitle: NSLocalizedString("thunderstormSubtitle", comment: ""))
+            } else if currentWeather.weather.first?.main == "Drizzle" {
+                NotificationManager.instance.scheduleNotification(title: NSLocalizedString("WeatherAlert", comment: ""), subtitle: NSLocalizedString("drizzleSubtitle", comment: ""))
+            } else if currentWeather.weather.first?.main == "Snow" {
+                NotificationManager.instance.scheduleNotification(title: NSLocalizedString("WeatherAlert", comment: ""), subtitle: NSLocalizedString("snowSubtitle", comment: ""))
+            }
         }
     }
     
@@ -62,8 +85,6 @@ final class WeatherViewModel: NSObject, ObservableObject{
             }
         }
     }
-
-
 
     func saveSelectedCity(_ city: City) {
         var selectedCities = loadSelectedCities()
@@ -125,7 +146,11 @@ final class WeatherViewModel: NSObject, ObservableObject{
                     self?.getCityName(of: location)
                     self?.isLoading = false
                     self?.searchCityName = ""
+                    
+                    NotificationManager.instance.scheduleNotification(title: NSLocalizedString("WeatherUpdate", comment: ""), subtitle: NSLocalizedString("curWeather", comment: "") + " \(result.current.weather.first?.currentWeatherForNotifi ?? "Unknown")")
+                    UNUserNotificationCenter.current().setBadgeCount(0)
                 }
+                
             case .failure(let apiError):
                 print("Error: \(apiError.localizedDescription)")
                 DispatchQueue.main.async {
@@ -152,29 +177,41 @@ extension WeatherViewModel: CLLocationManagerDelegate{
         requestLocation()
     }
     
-    private func requestLocation(){
-        guard CLLocationManager.locationServicesEnabled() else {return}
-        
-        switch locationAuthorizationStatus(){
-        case .notDetermined, .authorizedAlways, .authorizedWhenInUse:
+    private func requestLocation() {
+        guard CLLocationManager.locationServicesEnabled() else {
+            showAlert = true
+            isLoading = false
+            return
+        }
+
+        switch locationAuthorizationStatus() {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .authorizedAlways, .authorizedWhenInUse:
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.requestLocation()
-        case .restricted: break
-        case .denied: showAlert = true; isLoading = false
-        @unknown default: break
+        case .restricted, .denied:
+            showAlert = true
+            isLoading = false
+        @unknown default:
+            break
         }
     }
+
+
     
     func locationAuthorizationStatus()-> CLAuthorizationStatus{
-        let locationManager = CLLocationManager()
+        _ = CLLocationManager()
         var locationAuthorizationStatus: CLAuthorizationStatus
         locationAuthorizationStatus = CLLocationManager.authorizationStatus()
+        print("LOCATION STATUS \(locationAuthorizationStatus)")
         return locationAuthorizationStatus
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         getWeather()
     }
+    
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         self.isLoading = false
