@@ -22,3 +22,17 @@
 # **Виджет с прогнозом на ближайшее время**
 
 ![XhJevV4LxU4](https://github.com/Sanchoszza/Forecast/assets/87428097/31f2f211-7ced-4698-adc6-c61c66a521fb)
+
+
+# **Уведомление с прогнозом на текущее время**
+
+
+![GdlxTWJc0ig](https://github.com/Sanchoszza/Forecast/assets/87428097/0327e559-5ea0-4b91-9e2b-2bc981375ef9)
+
+
+# **Уведомление с предупреждением о начале дождя в ближайший час**
+
+
+![w5vlG8fK9VY](https://github.com/Sanchoszza/Forecast/assets/87428097/7e8ac604-fafc-4f0b-8b2c-c6bafb3bd2b3)
+
+
